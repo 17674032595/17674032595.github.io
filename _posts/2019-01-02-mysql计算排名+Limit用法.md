@@ -20,7 +20,7 @@ tags:
 
 ```SELECT * FROM table_score ORDER BY score DESC;```
 
-![图1](img/mysql/mysql-01.png)
+![图1](/img/mysql/mysql-01.png)
 
 ## 获取某个学生成绩排名并计算该学生和上一名学生成绩差，是并列排名
 
