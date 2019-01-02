@@ -20,28 +20,28 @@ tags:
 
 ```SELECT * FROM table_score ORDER BY score DESC;```
 
-![图1](/)
+![图1](/img/mysql/mysql-01.png)
 
 ## 获取某个学生成绩排名并计算该学生和上一名学生成绩差，是并列排名
 
-    ```
-    SELECT *,
-    (SELECT count(DISTINCT score) FROM table_score AS b WHERE a.score<b.score)+1 AS rank, #获取排名，并列
-    (SELECT b.score FROM table_score AS b WHERE b.score>a.score ORDER BY b.score LIMIT 1)-a.score AS subtract #获取和上一名学生成绩的差 
-    FROM table_score AS a WHERE a.s_id = 13; #获取学生周三的成绩排名和与上一名的成绩差
-    ```
+```
+SELECT *,
+(SELECT count(DISTINCT score) FROM table_score AS b WHERE a.score<b.score)+1 AS rank, #获取排名，并列
+(SELECT b.score FROM table_score AS b WHERE b.score>a.score ORDER BY b.score LIMIT 1)-a.score AS subtract #获取和上一名学生成绩的差 
+FROM table_score AS a WHERE a.s_id = 13; #获取学生周三的成绩排名和与上一名的成绩差
+```
     
 ![图2](/img/mysql/mysql-02.png)
 
 ## 获取所有学生成绩排名-并列排名
     
-    ```
-    SELECT *,
-       (SELECT count(DISTINCT score) FROM table_score AS b WHERE a.score<b.score)+1 AS rank #获取排名-并列
-       FROM table_score AS a ORDER BY rank; #获取学生成绩排名
-    ```
+```
+SELECT *,
+   (SELECT count(DISTINCT score) FROM table_score AS b WHERE a.score<b.score)+1 AS rank #获取排名-并列
+   FROM table_score AS a ORDER BY rank; #获取学生成绩排名
+```
 
-![图3](img/mysql/mysql-03.png)
+![图3](/img/mysql/mysql-03.png)
 
 ## 获取所有学生成绩排名，不是并列排名。计算行号进行排名
 
@@ -52,33 +52,33 @@ SELECT a.*,
    ORDER BY a.score DESC;
 ```
 
-![图3](img/mysql/mysql-04.png)
+![图3](/img/mysql/mysql-04.png)
 
 ## MySQL的Limit子句
    
    **Limit子句可以被用于强制 SELECT 语句返回指定的记录数。Limit接受一个或两个数字参数。参数必须是一个整数常量。如果给定两个参数，第一个参数指定第一个返回记录行的偏移量，第二个参数指定返回记录行的最大数目。**
    ```
-         //初始记录行的偏移量是 0(而不是 1)：
-   　　   mysql> SELECT * FROM table LIMIT 5,10; //检索记录行6-15
-    
-        //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
-   　　   mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last
-   
-        //如果只给定一个参数，它表示返回最大的记录行数目。换句话说，LIMIT n 等价于 LIMIT 0,n：
-   　　   mysql> SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
+     //初始记录行的偏移量是 0(而不是 1)：
+　　   mysql> SELECT * FROM table LIMIT 5,10; //检索记录行6-15
+
+    //为了检索从某一个偏移量到记录集的结束所有的记录行，可以指定第二个参数为 -1：
+　　   mysql> SELECT * FROM table LIMIT 95,-1; // 检索记录行 96-last
+
+    //如果只给定一个参数，它表示返回最大的记录行数目。换句话说，LIMIT n 等价于 LIMIT 0,n：
+　　   mysql> SELECT * FROM table LIMIT 5;     //检索前 5 个记录行
    ```
    
 ## Limit的效率高？
    
-   　　常说的Limit的执行效率高，是对于一种特定条件下来说的：即数据库的数量很大，但是只需要查询一部分数据的情况。
-   　　高效率的原理是：**避免全表扫描，提高查询效率**。
+    常说的Limit的执行效率高，是对于一种特定条件下来说的：即数据库的数量很大，但是只需要查询一部分数据的情况。
+    高效率的原理是：**避免全表扫描，提高查询效率**。
    
-   　　比如：每个用户的email是唯一的，如果用户使用email作为用户名登陆的话，就需要查询出email对应的一条记录。
-   　　SELECT * FROM t_user WHERE email=?;
-   　　上面的语句实现了查询email对应的一条用户信息，但是由于email这一列没有加索引，会导致全表扫描，效率会很低。
-   　　SELECT * FROM t_user WHERE email=? LIMIT 1;
-   　　加上LIMIT 1，只要找到了对应的一条记录，就不会继续向下扫描了，效率会大大提高。
-   
+　　比如：每个用户的email是唯一的，如果用户使用email作为用户名登陆的话，就需要查询出email对应的一条记录。
+　　SELECT * FROM t_user WHERE email=?;
+　　上面的语句实现了查询email对应的一条用户信息，但是由于email这一列没有加索引，会导致全表扫描，效率会很低。
+　　SELECT * FROM t_user WHERE email=? LIMIT 1;
+　　加上LIMIT 1，只要找到了对应的一条记录，就不会继续向下扫描了，效率会大大提高。
+
     
    
 ## Limit的效率低？
@@ -90,6 +90,7 @@ SELECT a.*,
             　　```
                 select * from table limit 150000,1000;
                 ```
+         
    　　   语句2:
             　　```
                 select * from table while id>=150000 limit 1000;
@@ -111,6 +112,7 @@ SELECT a.*,
    　　比如下面的sql语句：
    　　　　```
           ① selete * from testtable limit 2,1;
+          
    　　　　② selete * from testtable limit 2 offset 1;
           ```
    　　注意：
@@ -120,5 +122,6 @@ SELECT a.*,
    　　这两个都是能完成需要，但是他们之间是有区别的：
           ```
    　　　　①是从数据库中第三条开始查询，取一条数据，即第三条数据读取，一二条跳过
+            
    　　　　②是从数据库中的第二条数据开始查询两条数据，即第二条和第三条。
           ```
