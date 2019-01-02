@@ -20,8 +20,7 @@ tags:
 
 ```SELECT * FROM table_score ORDER BY score DESC;```
 
-![图1](/../)
-![图1](/../../)
+![图1](/)
 
 ## 获取某个学生成绩排名并计算该学生和上一名学生成绩差，是并列排名
 
@@ -32,7 +31,7 @@ tags:
     FROM table_score AS a WHERE a.s_id = 13; #获取学生周三的成绩排名和与上一名的成绩差
     ```
     
-![图2](img/mysql/mysql-02.png)
+![图2](/img/mysql/mysql-02.png)
 
 ## 获取所有学生成绩排名-并列排名
     
