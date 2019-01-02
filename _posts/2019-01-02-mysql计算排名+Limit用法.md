@@ -70,14 +70,18 @@ SELECT a.*,
    
 ## Limit的效率高？
 常说的Limit的执行效率高，是对于一种特定条件下来说的：即数据库的数量很大，但是只需要查询一部分数据的情况。
-    
+
 高效率的原理是：**避免全表扫描，提高查询效率**。
 
 比如：每个用户的email是唯一的，如果用户使用email作为用户名登陆的话，就需要查询出email对应的一条记录。
+
 ```SELECT * FROM t_user WHERE email=?;```
+
 上面的语句实现了查询email对应的一条用户信息，但是由于email这一列没有加索引，会导致全表扫描，效率会很低。
+
 ```SELECT * FROM t_user WHERE email=? LIMIT 1;```
-加上LIMIT 1，只要找到了对应的一条记录，就不会继续向下扫描了，效率会大大提高。
+
+  加上LIMIT 1，只要找到了对应的一条记录，就不会继续向下扫描了，效率会大大提高。
 
     
    
@@ -86,8 +90,8 @@ SELECT a.*,
 在一种情况下，使用limit效率低，那就是：只使用limit来查询语句，并且偏移量特别大的情况
    
 做以下实验：
-    语句1:```select * from table limit 150000,1000;```
-    语句2:```select * from table while id>=150000 limit 1000;```
+- 语句1:```select * from table limit 150000,1000;```
+- 语句2:```select * from table while id>=150000 limit 1000;```
        
 语句1为0.2077秒；语句2为0.0063秒
 两条语句的时间比是：语句1/语句2＝32.968
@@ -105,14 +109,14 @@ SELECT a.*,
 经常用到在数据库中查询中间几条数据的需求
 比如下面的sql语句：
 
-```① selete * from testtable limit 2,1;
-   ② selete * from testtable limit 2 offset 1;```
-
-   　　注意：
-   　　　　1.数据库数据计算是从0开始的
-   　　　　2.offset X是跳过X个数据，limit Y是选取Y个数据
-   　　　　3.limit  X,Y  中X表示跳过X个数据，读取Y个数据
-   　　这两个都是能完成需要，但是他们之间是有区别的：
-   
-   ```①是从数据库中第三条开始查询，取一条数据，即第三条数据读取，一二条跳过
-      ②是从数据库中的第二条数据开始查询两条数据，即第二条和第三条。```
+```
+- ① selete * from testtable limit 2,1;
+- ② selete * from testtable limit 2 offset 1;
+```
+注意：
+- 1.数据库数据计算是从0开始的
+- 2.offset X是跳过X个数据，limit Y是选取Y个数据
+- 3.limit  X,Y  中X表示跳过X个数据，读取Y个数据
+这两个都是能完成需要，但是他们之间是有区别的：
+- ①是从数据库中第三条开始查询，取一条数据，即第三条数据读取，一二条跳过
+- ②是从数据库中的第二条数据开始查询两条数据，即第二条和第三条。
