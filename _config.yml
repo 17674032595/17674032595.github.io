@@ -105,10 +105,10 @@ friends: [
         title: "简书·BY",
         href: "http://www.jianshu.com/u/e71990ada2fd"
     },{
-        title: "Apple",
-        href: "https://apple.com"
+        title: "Baidu",
+        href: "https://www.baidu.com"
     },{
-        title: "Apple Developer",
-        href: "https://developer.apple.com/"
+        title: "QQ",
+        href: "http://wpa.qq.com/msgrd?v=3&uin=&site=qq&menu=yes"
     }
 ]
