@@ -2,7 +2,7 @@
 title: 坚持最为难得
 SEOTitle: 杨松的博客 | BY Blog
 header-img: img/post-bg-desk.jpg
-email: m17674032595@gmail.com
+email: m17674032595@163.com
 description: "Every failure is leading towards success."
 keyword: "BY, BY Blog, 杨松的博客, 杨松, JAVA"
 url: "http://17674032595.github.io"          # your host, for absolute URL
@@ -11,7 +11,7 @@ github_repo: "https://github.com/17674032595/17674032595.github.io.git" # you co
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Don't forget your first thought--be a rich man!"
+sidebar-about-description: "Don't forget your first thought--be a rich man!<br>不忘初心--做个有钱人！"
 sidebar-avatar: /img/my.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -22,9 +22,8 @@ weibo_username:     5614633891
 zhihu_username:     yang-song-21-80
 github_username:    17674032595
 #facebook_username:  baiying.qiu.7
-#jianshu_username:   e71990ada2fd
+jianshu_username:   e1356612c626
 #twitter_username:   qiubaiying
-qq_username: 1
 
 
 
