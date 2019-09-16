@@ -4,7 +4,7 @@ SEOTitle: 杨松的博客 | BY Blog
 header-img: img/post-bg-desk.jpg
 email: m17674032595@gmail.com
 description: "Every failure is leading towards success."
-keyword: "BY, BY Blog, 柏荧的博客, qiubaiying, 邱柏荧, iOS, Apple, iPhone"
+keyword: "BY, BY Blog, 杨松的博客, 杨松, JAVA"
 url: "http://17674032595.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/17674032595/17674032595.github.io.git" # you code repository
@@ -18,11 +18,11 @@ sidebar-avatar: /img/my.jpg      # use absolute URL, seeing it's used in both `/
 
 # SNS settings
 RSS: false
-# weibo_username:     qiubaiying
-zhihu_username:     qiubaiying
-github_username:    qiubaiying
-facebook_username:  baiying.qiu.7
-jianshu_username:   e71990ada2fd
+weibo_username:     松哥哥ys
+zhihu_username:     yang-song-21-80
+github_username:    17674032595
+#facebook_username:  baiying.qiu.7
+#jianshu_username:   e71990ada2fd
 #twitter_username:   qiubaiying
 
 
@@ -99,11 +99,11 @@ service-worker: true
 # Friends
 friends: [
     {
-        title: "WY",
-        href: "http://zhengwuyang.com"
+        title: "pandownload",
+        href: "http://pandownload.com/"
     },{
-        title: "简书·BY",
-        href: "http://www.jianshu.com/u/e71990ada2fd"
+        title: "icon",
+        href: "https://www.iconfont.cn/"
     },{
         title: "Baidu",
         href: "https://www.baidu.com"
