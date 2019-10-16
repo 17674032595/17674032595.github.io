@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      编程中一些有趣的实验
-subtitle:   JAVA编程中经常会遇到的一些问题
+title:      Intellij IDEA的一些设置
+subtitle:   Intellij IDEA的一些设置问题
 date:       2019-09-16
 author:     BY
 header-img: img/2019/09/201909.jpg
@@ -11,10 +11,10 @@ tags:
 ---
 # 前言
 
->主要是JAVA编程中经常会遇到的一些问题
-[《赋值语句返回值链接》](https://blog.csdn.net/w605283073/article/details/85219022).
+>主要是Intellij IDEA的一些设置问题
+[《IntelliJ IDEA设置类注释和方法注释模板链接》](https://blog.csdn.net/sikefeng/article/details/80557265).
 
-## 洛克定律：确定目标，专注行动
+## 瓦拉赫效应：成功，要懂得经营自己的长处
 
 
 
